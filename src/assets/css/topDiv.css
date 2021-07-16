@@ -1,0 +1,112 @@
+body{
+    margin: 0px;
+    padding: 0px;
+}
+
+html{
+    -moz-user-select: none; /*火狐*/
+    -webkit-user-select: none;  /*webkit浏览器*/
+    -ms-user-select: none;   /*IE10*/
+    -khtml-user-select: none; /*早期浏览器*/
+    user-select: none;
+}
+.background{
+    background-color: rgba(31, 30, 30, 0.932);
+    margin: 0px;
+    padding: 0px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'montserrat',sans-serif;
+}
+.loading{
+    width:200px;
+    height: 200px;
+    box-sizing: border-box;
+    border-radius: 50%;
+    border-top: 10px solid rgb(7, 247, 79);
+    position: relative;
+    animation: a1 2s linear infinite;
+}
+.loading::before, .loading::after{
+    content: '';
+    width: 200px;
+    height: 200px;
+    position: absolute;
+    left: 0;
+    top: -10px;
+    box-sizing: border-box;
+    border-radius: 50%;
+}
+
+.loading::before{
+    border-top: 10px solid rgb(100, 75, 247);
+    transform: rotate(120deg);
+}
+
+.loading::after{
+    border-top: 10px solid rgb(238, 53, 53);
+    transform: rotate(240deg);
+}
+.loading span{
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    color: #fff;
+    text-align: center;
+    line-height: 200px;
+    animation: a2 2s linear infinite;
+}
+
+.bottomButton{
+    position: absolute;
+    bottom: 20px;
+    right: 0px;
+    color:white;
+    text-transform: uppercase;
+    padding: 1rem 3rem;
+    font-size: 1.5rem;
+    text-decoration: none;
+    /* border: 1px solid rgb(26, 38, 199); */
+    overflow: hidden;
+}
+
+.bottomButton a{
+    text-decoration: none;
+    color:white;
+}
+
+.bottomButton:hover{
+    cursor: pointer;
+    /* box-shadow: 1px 1px 25px 10px rgba(42,149,211,0.4); */
+}
+.bottomButton::before{
+    content: '';
+    position: absolute;
+    top: 0px;
+    left: -100px;
+    width: 100px;
+    height: 100px;
+    background: linear-gradient(
+        120deg,
+        transparent,
+        rgba(45,241,193,0.4),
+        transparent
+    );
+    transition: all 650ms;
+}
+.bottomButton:hover::before{
+    left: 100%;
+}
+@keyframes a1 {
+    to{
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes a2 {
+    to{
+        transform: rotate(-360deg);
+    }
+}
