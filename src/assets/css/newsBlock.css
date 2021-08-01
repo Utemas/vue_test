@@ -1,0 +1,19 @@
+.newsBlock{
+    position: absolute;
+    top: 260px;
+    left: 10px;
+    background-color: white;
+    display: block;
+    width: 30%;
+    height: 60%;
+    border-radius: 10%;
+}
+
+.newsTitle{
+    position:absolute;
+    left:30px;
+    font-size:30px;
+    color:rgb(159, 214, 240);
+    border-bottom: 1px black solid;
+    
+}
