@@ -1,4 +1,5 @@
-body{
+<style>
+  body{
     margin: 0px;
     padding: 0px;
 }
@@ -99,7 +100,6 @@ html{
     left: 100%;
 }
 
-
 .title{
     position:absolute;
     top:100px;
@@ -123,7 +123,6 @@ html{
     left: 10px;
     animation: move1 3s;
 }
-
 
 @keyframes mymove {
     from {
@@ -162,3 +161,37 @@ html{
         transform: rotate(-360deg);
     }
 }
+</style>
+<template>
+    <div>
+        <div class="title color-white">
+        <span>Welcome&nbsp;{{name}}</span>
+        <p>This is a Synthetical System, click 'Skip' to start.</p>
+        </div>
+        <newsBlock/>
+        <memorandum v-if="name != undefined && name.length > 1"/>
+        <!--<div class="" style="width:30px;height:40px;border:1px black solid;"></div>-->
+        <div><router-link class="color-white" to="/email"><p class="color-white tip">Tip: You can ask to Manager by this link.</p></router-link></div>
+        <div class="loading"></div>
+        <div class="bottomButton"><a href="#">SKIP>></a></div>
+    </div>
+</template>
+<script>
+import NewsBlock from '@/components/NewsBlock'
+import memorandum from '@/components/Memorandum'
+import vlink from '@/components/VLink'
+import router from '../router'
+export default{
+  components: {
+    NewsBlock,
+    memorandum,
+    vlink
+  },
+  router,
+  data: function () {
+    return {
+      name: 'ddd'
+    }
+  }
+}
+</script>
