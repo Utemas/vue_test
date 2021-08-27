@@ -12,7 +12,7 @@ html{
     user-select: none;
 }
 .background{
-    background-color: rgba(31, 30, 30, 0.932);
+    /* background-color: rgba(31, 30, 30, 0.932); */
     margin: 0px;
     padding: 0px;
     height: 100%;
@@ -20,6 +20,9 @@ html{
     align-items: center;
     justify-content: center;
     font-family: 'montserrat',sans-serif;
+    background-image: linear-gradient(125deg, #2c3e50, #27ae60, #2980b9, #e74c3c, #8e44ad);
+    background-size: 400%;
+    animation:backgroundmove 15s infinite;
 }
 .loading{
     width:200px;
@@ -102,7 +105,7 @@ html{
 
 .title{
     position:absolute;
-    top:100px;
+    top:80px;
     font-size:40px;
     animation: mymove 3s;
     left:10px;
@@ -132,7 +135,7 @@ html{
     }
     to {
         color: #fff;
-        top: 100px;
+        top: 80px;
         left:10px;
     }
 }
@@ -161,6 +164,33 @@ html{
         transform: rotate(-360deg);
     }
 }
+@keyframes backgroundmove{
+    0% {background-position: 0% 50%; }
+    50% {background-position: 100% 50%; }
+    100% {background-position: 0% 50%; }
+}
+/*定义滚动条高宽及背景 高宽分别对应横竖滚动条的尺寸*/
+  ::-webkit-scrollbar{
+    width: 7px;
+    height: 7px;
+    background-color: #F5F5F5;
+  }
+
+  /*定义滚动条轨道 内阴影+圆角*/
+  ::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    background-color: #F5F5F5;
+  }
+
+  /*定义滑块 内阴影+圆角*/
+  ::-webkit-scrollbar-thumb{
+    border-radius: 10px;
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, .1);
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, .1);
+    background-color: #c8c8c8;
+  }
 </style>
 <template>
     <div>
@@ -173,19 +203,17 @@ html{
         <!--<div class="" style="width:30px;height:40px;border:1px black solid;"></div>-->
         <div><router-link class="color-white" to="/email"><p class="color-white tip">Tip: You can ask to Manager by this link.</p></router-link></div>
         <div class="loading"></div>
-        <div class="bottomButton"><a href="#">SKIP>></a></div>
+        <div class="bottomButton"><router-link to="/main">SKIP>></router-link></div>
     </div>
 </template>
 <script>
 import NewsBlock from '@/components/NewsBlock'
 import memorandum from '@/components/Memorandum'
-import vlink from '@/components/VLink'
 import router from '../router'
 export default{
   components: {
     NewsBlock,
-    memorandum,
-    vlink
+    memorandum
   },
   router,
   data: function () {

@@ -8,7 +8,6 @@
     display: block;
     width: 30%;
     height: 60%;
-    border-radius: 5%;
     animation: newsBlockMove 1s;
     overflow-y: auto;
   }
@@ -18,6 +17,10 @@
       font-size:30px;
       color:rgb(159, 214, 240);
       border-bottom: 1px black solid;
+  }
+  .newTitles{
+    color: rgb(86, 141, 141);
+    text-decoration: none;
   }
   .cc{
     position:relative;
@@ -44,14 +47,26 @@
 <template>
     <div class="newsBlock">
       <span class="newsTitle"><a href="#">News</a></span>
-      <div v-for="(item,i) in list" class="cc" :key="i">{{i}}</div>
+      <div></div>
+      <div v-for="(item,index) in list" class="cc" :key="index"><router-link class="newTitles" to="/email">{{item.title}}</router-link><br/><span style="margin:40px">{{item.brf}}</span></div>
     </div>
 </template>
 <script>
 export default{
   data: function () {
     return {
-      list: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+      list: [
+        {index: 1, title: '新闻1', brf: '这个是新闻1的简介'},
+        {index: 2, title: '新闻2', brf: '这个是简介'},
+        {index: 3, title: '新闻3', brf: '这个是简介'},
+        {index: 4, title: '新闻4', brf: '这个是简介'},
+        {index: 5, title: '新闻5', brf: '这个是简介'},
+        {index: 6, title: '新闻6', brf: '这个是简介'},
+        {index: 7, title: '新闻7', brf: '这个是简介'},
+        {index: 8, title: '新闻8', brf: '这个是简介'},
+        {index: 1, title: '新闻9', brf: '这个是简介'},
+        {index: 1, title: '新闻10', brf: '这个是简介'}
+      ]
     }
   }
 }

@@ -1,7 +1,8 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import introduction from '@/components/introduction'
+import introduction from '@/vue/introduction'
 import email from '@/vue/email'
+import Main from '@/vue/Main'
 
 Vue.use(Router)
 
@@ -16,6 +17,11 @@ export default new Router({
       path: '/email',
       name: 'email',
       component: email
+    },
+    {
+      path: '/main',
+      name: 'main',
+      component: Main
     }
   ]
 })

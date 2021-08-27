@@ -8,4 +8,19 @@
   <body style="height: 100%;">
     <div id="app" style="height: 100%;"></div>
   </body>
+  <script>
+    document.onkeydown = function (e) {
+      var ev = window.event || e
+      var code = ev.keyCode || ev.which
+      // eslint-disable-next-line eqeqeq
+      if (code == 116) {
+        if (ev.preventDefault) {
+          ev.preventDefault(e)
+        } else {
+          ev.keyCode = 0
+          ev.returnValue = false
+        }
+      }
+    }
+    </script>
 </html>
