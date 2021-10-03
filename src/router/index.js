@@ -3,6 +3,9 @@ import Router from 'vue-router'
 import introduction from '@/vue/introduction'
 import email from '@/vue/email'
 import Main from '@/vue/Main'
+import Login from '@/vue/Login'
+import Notes from '@/vue/notes'
+import Database from '@/vue/database'
 
 Vue.use(Router)
 
@@ -22,6 +25,21 @@ export default new Router({
       path: '/main',
       name: 'main',
       component: Main
+    },
+    {
+      path: '/login',
+      name: 'login',
+      component: Login
+    },
+    {
+      path: '/notes',
+      name: 'notes',
+      component: Notes
+    },
+    {
+      path: '/database',
+      name: 'database',
+      component: Database
     }
   ]
 })

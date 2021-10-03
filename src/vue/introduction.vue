@@ -191,11 +191,20 @@ html{
     -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, .1);
     background-color: #c8c8c8;
   }
+  .function-block{
+      position:relative;
+      width:350px;
+      height:90px;
+      background-color:white;
+      left:-20%;
+      top:40px;
+      display:inline-flex;
+  }
 </style>
 <template>
     <div>
         <div class="title color-white">
-        <span>Welcome&nbsp;{{name}}</span>
+        <span>Welcome&nbsp;<span>{{name}}</span></span>
         <p>This is a Synthetical System, click 'Skip' to start.</p>
         </div>
         <newsBlock/>
@@ -203,7 +212,13 @@ html{
         <!--<div class="" style="width:30px;height:40px;border:1px black solid;"></div>-->
         <div><router-link class="color-white" to="/email"><p class="color-white tip">Tip: You can ask to Manager by this link.</p></router-link></div>
         <div class="loading"></div>
-        <div class="bottomButton"><router-link to="/main">SKIP>></router-link></div>
+        <div class="function-block">
+            <div style="height:90px;background-color:black;width:33.3%"><router-link to="/database">database.png</router-link></div>
+            <div style="height:90px;background-color:pink;width:33.3%"><router-link to="/notes">note.png</router-link></div>
+            <div style="height:90px;background-color:green;width:33.3%"><router-link to="#"></router-link></div>
+        </div>
+        <div v-if="name != undefined && name.length > 1" class="bottomButton"><router-link to="/main">SKIP>></router-link></div>
+        <div v-if="name != undefined && name.length == 0" class="bottomButton"><router-link to="/login">SKIP>></router-link></div>
     </div>
 </template>
 <script>
@@ -218,8 +233,14 @@ export default{
   router,
   data: function () {
     return {
-      name: 'ddd'
+      info: '',
+      name: ''
     }
+  },
+  mounted () {
+    let that = this
+    this.name = that.getCookie('setCookie')
+    // this.$axios.get('http://localhost:8080/hello').then(response => (this.info = response))
   }
 }
 </script>

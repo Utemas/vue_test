@@ -1,12 +1,4 @@
 <style>
-.returnlink{
-  position:absolute;
-  top:5px;
-  left:10px;
-  text-decoration: none;
-  font-size: 30px;
-  color: white;
-}
 .mainblock{
   position: absolute;
   top:65px;
