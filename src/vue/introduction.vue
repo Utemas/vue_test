@@ -1,29 +1,5 @@
 <style>
-  body{
-    margin: 0px;
-    padding: 0px;
-}
-
-html{
-    -moz-user-select: none; /*火狐*/
-    -webkit-user-select: none;  /*webkit浏览器*/
-    -ms-user-select: none;   /*IE10*/
-    -khtml-user-select: none; /*早期浏览器*/
-    user-select: none;
-}
-.background{
-    /* background-color: rgba(31, 30, 30, 0.932); */
-    margin: 0px;
-    padding: 0px;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: 'montserrat',sans-serif;
-    background-image: linear-gradient(125deg, #2c3e50, #27ae60, #2980b9, #e74c3c, #8e44ad);
-    background-size: 400%;
-    animation:backgroundmove 15s infinite;
-}
+@import '../assets/css/common.css';
 .loading{
     width:200px;
     height: 200px;
@@ -105,7 +81,7 @@ html{
 
 .title{
     position:absolute;
-    top:80px;
+    top:50px;
     font-size:40px;
     animation: mymove 3s;
     left:10px;
@@ -135,7 +111,7 @@ html{
     }
     to {
         color: #fff;
-        top: 80px;
+        top: 50px;
         left:10px;
     }
 }
@@ -152,7 +128,6 @@ html{
         left:10px;
     }
 }
-
 @keyframes a1 {
     to{
         transform: rotate(360deg);
@@ -164,11 +139,7 @@ html{
         transform: rotate(-360deg);
     }
 }
-@keyframes backgroundmove{
-    0% {background-position: 0% 50%; }
-    50% {background-position: 100% 50%; }
-    100% {background-position: 0% 50%; }
-}
+
 /*定义滚动条高宽及背景 高宽分别对应横竖滚动条的尺寸*/
   ::-webkit-scrollbar{
     width: 7px;
@@ -194,18 +165,27 @@ html{
   .function-block{
       position:relative;
       width:350px;
-      height:90px;
+      height:100px;
       background-color:white;
       left:-20%;
-      top:40px;
+      top:80px;
       display:inline-flex;
+  }
+  .img-size{
+      width:100%;
+      height: 100%;
+  }
+  .each-block{
+      background-color:black;
+      width:33.3%;
+      height:100%;
   }
 </style>
 <template>
     <div>
         <div class="title color-white">
-        <span>Welcome&nbsp;<span>{{name}}</span></span>
-        <p>This is a Synthetical System, click 'Skip' to start.</p>
+            <span>Welcome&nbsp;<span><a href="#">{{name}}</a></span></span>
+            <p>This is a Synthetical System, click 'Skip' to start.</p>
         </div>
         <newsBlock/>
         <memorandum v-if="name != undefined && name.length > 1"/>
@@ -213,9 +193,9 @@ html{
         <div><router-link class="color-white" to="/email"><p class="color-white tip">Tip: You can ask to Manager by this link.</p></router-link></div>
         <div class="loading"></div>
         <div class="function-block">
-            <div style="height:90px;background-color:black;width:33.3%"><router-link to="/database">database.png</router-link></div>
-            <div style="height:90px;background-color:pink;width:33.3%"><router-link to="/notes">note.png</router-link></div>
-            <div style="height:90px;background-color:green;width:33.3%"><router-link to="#"></router-link></div>
+            <div class="each-block"><router-link :to="link1"><img class="img-size" src="@/assets/database.png"/></router-link></div>
+            <div class="each-block"><router-link :to="link2"><img class="img-size" src="@/assets/notes.png"/></router-link></div>
+            <div class="each-block"><router-link :to="link3"><img class="img-size" src="@/assets/search.png"/></router-link></div>
         </div>
         <div v-if="name != undefined && name.length > 1" class="bottomButton"><router-link to="/main">SKIP>></router-link></div>
         <div v-if="name != undefined && name.length == 0" class="bottomButton"><router-link to="/login">SKIP>></router-link></div>
@@ -234,13 +214,20 @@ export default{
   data: function () {
     return {
       info: '',
-      name: ''
+      name: '',
+      link1: '/login',
+      link2: '/login',
+      link3: '/search'
     }
   },
   mounted () {
-    let that = this
-    this.name = that.getCookie('setCookie')
+    // let that = this
+    // this.name = that.getCookie('setCookie')
     // this.$axios.get('http://localhost:8080/hello').then(response => (this.info = response))
+    if (this.name !== undefined && this.name.length > 1) {
+      this.link1 = '/database'
+      this.link2 = '/notes'
+    }
   }
 }
 </script>

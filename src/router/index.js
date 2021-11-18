@@ -6,6 +6,8 @@ import Main from '@/vue/Main'
 import Login from '@/vue/Login'
 import Notes from '@/vue/notes'
 import Database from '@/vue/database'
+import NewNotes from '@/vue/newNotes'
+import Search from '@/vue/search'
 
 Vue.use(Router)
 
@@ -40,6 +42,16 @@ export default new Router({
       path: '/database',
       name: 'database',
       component: Database
+    },
+    {
+      path: '/newNotes',
+      name: 'newNotes',
+      component: NewNotes
+    },
+    {
+      path: '/search',
+      name: 'search',
+      component: Search
     }
   ]
 })

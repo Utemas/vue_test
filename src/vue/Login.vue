@@ -66,8 +66,8 @@ export default{
   },
   methods: {
     subToLogin: function () {
-      let that = this
-      this.name = that.setCookie('setCookie', 'ssss', 360)
+      // let that = this
+      // this.name = that.setCookie('setCookie', 'ssss', 360)
       window.console.log('Yes')
     }
   }

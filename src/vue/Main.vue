@@ -1,4 +1,5 @@
 <style>
+@import '../assets/css/common.css';
 .mainblock{
   position: absolute;
   top:65px;
@@ -12,7 +13,7 @@
 <template>
   <div>
     <ReturnLink/>
-    <div class="mainblock"></div>
+    <div class=""></div>
   </div>
 </template>
 <script>
